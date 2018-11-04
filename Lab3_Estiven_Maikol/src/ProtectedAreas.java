@@ -37,7 +37,7 @@ public abstract class ProtectedAreas {
 
     @Override
     public String toString() {
-        return "ProtectedAreas{" + "name=" + name + ", province=" + province + '}';
+        return "ProtectedAreas:" + "\nname:" + name + ", province:" + province;
     }
 
     public abstract int income();
