@@ -7,5 +7,5 @@
  */
 public interface IncomeNonGovermentalAid {
 
-    public abstract int incomeNonGovermentalAid();
+    public abstract double incomeNonGovermentalAid();
 }
