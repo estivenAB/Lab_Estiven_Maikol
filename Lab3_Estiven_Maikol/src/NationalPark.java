@@ -14,7 +14,6 @@ public class NationalPark extends ProtectedAreas implements IncomeBySubsidy, Inc
 
     @Override
     public int incomeBySubsidy() {
-        final int ICE_CLIENTS = 1215491;
         int grant;
         grant = ICE_CLIENTS * 1200;
         return grant;
