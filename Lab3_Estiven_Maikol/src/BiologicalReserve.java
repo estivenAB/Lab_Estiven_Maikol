@@ -8,6 +8,20 @@
 public class BiologicalReserve extends ProtectedAreas implements IncomeBySubsidy{
     
     double grant;
+
+    public BiologicalReserve(double grant, String name, String province) {
+        super(name, province);
+        this.grant = grant;
+    }
+
+    public double getGrant() {
+        return grant;
+    }
+
+    public void setGrant(double grant) {
+        this.grant = grant;
+    }
+    
     
     public double getNecessaryGrant(double necessaryGrant){
         return grant = necessaryGrant;

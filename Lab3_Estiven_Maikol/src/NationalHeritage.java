@@ -7,6 +7,10 @@
  */
 public class NationalHeritage extends NationalMonument implements IncomeNonGovermentalAid {
     double aditionalAmmount;
+
+    public NationalHeritage(int incomePerEntry, String name, String province) {
+        super(incomePerEntry, name, province);
+    }
     @Override
     public double incomeNonGovermentalAid() {
         final double PIB_CR = 34588535.3;

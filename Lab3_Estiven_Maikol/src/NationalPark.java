@@ -10,6 +10,15 @@ public class NationalPark extends ProtectedAreas implements IncomeBySubsidy, Inc
     int grant;
     int incomePerEntry;
 
+    public NationalPark() {
+    }
+  
+    public NationalPark(int grant, int incomePerEntry, String name, String province) {
+        super(name, province);
+        this.grant = grant;
+        this.incomePerEntry = incomePerEntry;
+    }
+
     @Override
     public double income() {
         int incomeResult;
