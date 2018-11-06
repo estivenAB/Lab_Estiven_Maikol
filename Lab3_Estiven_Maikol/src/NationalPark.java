@@ -7,19 +7,19 @@
  */
 public class NationalPark extends ProtectedAreas implements IncomeBySubsidy, IncomePerEntry {
 
-    int grant;
-    int incomePerEntry;
+    private double grant;
+    private double incomePerEntry;
 
     public NationalPark() {
     }
 
-    public NationalPark(int grant, int incomePerEntry, String name, String province) {
+    public NationalPark(double grant, double incomePerEntry, String name, String province) {
         super(name, province);
         this.grant = grant;
         this.incomePerEntry = incomePerEntry;
     }
 
-    public int getGrant() {
+    public double getGrant() {
         return grant;
     }
 
@@ -27,7 +27,7 @@ public class NationalPark extends ProtectedAreas implements IncomeBySubsidy, Inc
         this.grant = grant;
     }
 
-    public int getIncomePerEntry() {
+    public double getIncomePerEntry() {
         return incomePerEntry;
     }
 
@@ -37,7 +37,7 @@ public class NationalPark extends ProtectedAreas implements IncomeBySubsidy, Inc
 
     @Override
     public double income() {
-        int incomeResult;
+        double incomeResult;
         incomeResult = grant + incomePerEntry;
         return incomeResult;
     }
@@ -50,7 +50,7 @@ public class NationalPark extends ProtectedAreas implements IncomeBySubsidy, Inc
     }
 
     @Override
-    public int incomePerEntry(int numTicketsSoldNational, int numTicketsSoldForeign) {
+    public double incomePerEntry(int numTicketsSoldNational, int numTicketsSoldForeign) {
 
         int incomeByNationals = numTicketsSoldNational * NATIONALS;
         int incomeByForeign = numTicketsSoldForeign * FOREIGN;
@@ -63,11 +63,11 @@ public class NationalPark extends ProtectedAreas implements IncomeBySubsidy, Inc
 
     @Override
     public String toString() {
-        return "NationalPark:" + " grant=" + grant + ", incomePerEntry=" + incomePerEntry;
+        return "NationalPark:" + " grant= " + grant + ", incomePerEntry= " + incomePerEntry;
     }
 
     @Override
     public String report1() {
-        return "Provincia: " + getProvince() + "\nNombre:" + getName() + "/ Ingresos :" + income();
+        return "Provincia: " + getProvince() + "\nNombre:" + getName() + "\nIngresos :" + income();
     }
 }

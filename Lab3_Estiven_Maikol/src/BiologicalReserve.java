@@ -5,9 +5,9 @@
  * @author Estiven Álvarez
  * @version 3 noviembre 2018
  */
-public class BiologicalReserve extends ProtectedAreas implements IncomeBySubsidy{
-    
-    double grant;
+public class BiologicalReserve extends ProtectedAreas implements IncomeBySubsidy {
+
+    private double grant;
 
     public BiologicalReserve() {
     }
@@ -24,16 +24,16 @@ public class BiologicalReserve extends ProtectedAreas implements IncomeBySubsidy
     public void setGrant(double grant) {
         this.grant = grant;
     }
-    
-    
-    public double getNecessaryGrant(double necessaryGrant){
+
+    public double getNecessaryGrant(double necessaryGrant) {
         return grant = necessaryGrant;
     }
-    
+
     @Override
     public double incomeBySubsidy() {
         return grant;
     }
+
     @Override
     public double income() {
         return grant;
@@ -43,9 +43,9 @@ public class BiologicalReserve extends ProtectedAreas implements IncomeBySubsidy
     public String toString() {
         return "BiologicalReserve:" + " grant=" + grant;
     }
-    
-     @Override
+
+    @Override
     public String report1() {
-        return "Provincia: " + getProvince() + "\nNombre:" + getName() + "/ Ingresos :" + income();
+        return "Provincia: " + getProvince() + "\nNombre:" + getName() + "\nIngresos :" + income();
     }
 }

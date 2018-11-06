@@ -8,8 +8,8 @@
 public class ProtectedAreasList {
 
     private ProtectedAreas[] areasList;
-    private int counter;
-    private final int DEFAULT_SIZE = 4;
+    int counter;
+    final static int DEFAULT_SIZE = 4;
 
     public ProtectedAreasList() {
         this.areasList = new ProtectedAreas[DEFAULT_SIZE];
@@ -21,14 +21,6 @@ public class ProtectedAreasList {
 
     public void setAreasList(ProtectedAreas[] areasList) {
         this.areasList = areasList;
-    }
-
-    public int getCounter() {
-        return counter;
-    }
-
-    public void setCounter(int counter) {
-        this.counter = counter;
     }
 
     public void addArea(ProtectedAreas newArea) {
@@ -67,50 +59,38 @@ public class ProtectedAreasList {
 
         for (int i = 0; i < counter; i++) {
             if (areasList[i] instanceof NationalPark) {
-                NationalPark newV = (NationalPark) areasList[i];
-                amountOfTickets += newV.getIncomePerEntry();
+                NationalPark newPark = (NationalPark) areasList[i];
+                amountOfTickets += newPark.getIncomePerEntry();
+                amountOfSubsidy += newPark.getGrant();
             }
         }
 
         for (int i = 0; i < counter; i++) {
             if (areasList[i] instanceof NationalMonument) {
-                NationalMonument newV = (NationalMonument) areasList[i];
-                amountOfTickets += newV.getIncomePerEntry();
-            }
-        }
-
-        for (int i = 0; i < counter; i++) {
-            if (areasList[i] instanceof NationalPark) {
-                NationalPark newV = (NationalPark) areasList[i];
-                amountOfSubsidy += newV.getGrant();
+                NationalMonument newMonument = (NationalMonument) areasList[i];
+                amountOfTickets += newMonument.getIncomePerEntry();
             }
         }
 
         for (int i = 0; i < counter; i++) {
             if (areasList[i] instanceof WildlifeRefuge) {
-                WildlifeRefuge newV = (WildlifeRefuge) areasList[i];
-                amountOfSubsidy += newV.getResult();
+                WildlifeRefuge newRefuge = (WildlifeRefuge) areasList[i];
+                amountOfSubsidy += newRefuge.getResult();
+                AmountOfNoGovernmentHelp += newRefuge.getHelp();
             }
         }
 
         for (int i = 0; i < counter; i++) {
             if (areasList[i] instanceof BiologicalReserve) {
-                BiologicalReserve newV = (BiologicalReserve) areasList[i];
-                amountOfSubsidy += newV.getGrant();
-            }
-        }
-
-        for (int i = 0; i < counter; i++) {
-            if (areasList[i] instanceof WildlifeRefuge) {
-                WildlifeRefuge newV = (WildlifeRefuge) areasList[i];
-                AmountOfNoGovernmentHelp += newV.getHelp();
+                BiologicalReserve newReserve = (BiologicalReserve) areasList[i];
+                amountOfSubsidy += newReserve.getGrant();
             }
         }
 
         for (int i = 0; i < counter; i++) {
             if (areasList[i] instanceof NationalHeritage) {
-                NationalHeritage newV = (NationalHeritage) areasList[i];
-                AmountOfNoGovernmentHelp += newV.getAditionalAmmount();
+                NationalHeritage newPatrimony = (NationalHeritage) areasList[i];
+                AmountOfNoGovernmentHelp += newPatrimony.getAditionalAmmount();
             }
         }
 

@@ -7,7 +7,7 @@
  */
 public abstract class NationalMonument extends ProtectedAreas implements IncomePerEntry {
 
-    int incomePerEntry;
+    private int incomePerEntry;
 
     public NationalMonument() {
     }
@@ -31,7 +31,7 @@ public abstract class NationalMonument extends ProtectedAreas implements IncomeP
     }
 
     @Override
-    public int incomePerEntry(int numTicketsSoldNational, int numTicketsSoldForeign) {
+    public double incomePerEntry(int numTicketsSoldNational, int numTicketsSoldForeign) {
         int incomeByNationals = numTicketsSoldNational * NATIONALS;
         int incomeByForeign = numTicketsSoldForeign * FOREIGN;
 
@@ -47,6 +47,6 @@ public abstract class NationalMonument extends ProtectedAreas implements IncomeP
 
     @Override
     public String report1() {
-        return "Provincia: " + getProvince() + "\nNombre:" + getName() + "/ Ingresos :" + income();
+        return "Provincia: " + getProvince() + "\nNombre:" + getName() + "\nIngresos :" + income();
     }
 }

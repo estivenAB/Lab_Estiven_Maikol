@@ -6,9 +6,9 @@
  */
 public class WildlifeRefuge extends ProtectedAreas {
     
-    double help;
-    double result;
-    boolean property;
+    private double help;
+    private double result;
+    private boolean property;
 
     public WildlifeRefuge() {
     }
@@ -68,7 +68,7 @@ public class WildlifeRefuge extends ProtectedAreas {
     }
      @Override
     public String report1() {
-        return "Provincia: " + getProvince() + "\nNombre:" + getName() + "/ Ingresos :" + income();
+        return "Provincia: " + getProvince() + "\nNombre:" + getName() + "\nIngresos :" + income();
     }
     
 }

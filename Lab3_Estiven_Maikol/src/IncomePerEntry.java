@@ -7,9 +7,9 @@
  */
 public interface IncomePerEntry {
 
-    final int NATIONALS = 5000;
-    final int FOREIGN = 6000;
+    final static int NATIONALS = 5000;
+    final static int FOREIGN = 6000;
 
-    public abstract int incomePerEntry(int numTicketsSoldNational, int numTicketsSoldForeign);
+    public abstract double incomePerEntry(int numTicketsSoldNational, int numTicketsSoldForeign);
 
 }
