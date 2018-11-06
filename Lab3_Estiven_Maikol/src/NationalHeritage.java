@@ -22,6 +22,19 @@ public class NationalHeritage extends NationalMonument implements IncomeNonGover
     public double income() {
         return aditionalAmmount + super.incomePerEntry;
     }
+
+    public double getAditionalAmmount() {
+        return aditionalAmmount;
+    }
+
+    public void setAditionalAmmount(double aditionalAmmount) {
+        this.aditionalAmmount = aditionalAmmount;
+    }
+
+    @Override
+    public String toString() {
+        return "NationalHeritage:" + " aditionalAmmount=" + aditionalAmmount ;
+    }
     
     
 }

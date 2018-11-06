@@ -5,31 +5,37 @@
  * @author Estiven Álvarez
  * @version 3 noviembre 2018
  */
-public class ProtectedAreasList extends ProtectedAreas {
+public class ProtectedAreasList {
 
     private ProtectedAreas[] areasList;
+    private int counter;
+    private final int DEFAULT_SIZE = 4;
 
     public ProtectedAreasList() {
-
+        this.areasList = new ProtectedAreas[DEFAULT_SIZE];
     }
 
-    public ProtectedAreasList(ProtectedAreas[] areasList, String name, String province) {
-        super(name, province);
+    public ProtectedAreas[] getAreasList() {
+        return areasList;
+    }
+
+    public void setAreasList(ProtectedAreas[] areasList) {
         this.areasList = areasList;
     }
 
+    public int getCounter() {
+        return counter;
+    }
+
+    public void setCounter(int counter) {
+        this.counter = counter;
+    }
+
     public void addArea(ProtectedAreas newArea) {
-        int counter = 0;
-        if (counter >= areasList.length) {
+        if (areasList.length == counter) {
             duplicateSizeList();
-        } else {
-            if (newArea != null) {
-                for (int i = counter; i >= 0; i--) {
-                    areasList[counter] = newArea;
-                    counter += 1;
-                }
-            }
         }
+        areasList[counter++] = newArea;
     }
 
     private void duplicateSizeList() {
@@ -37,12 +43,79 @@ public class ProtectedAreasList extends ProtectedAreas {
         for (int i = 0; i < areasList.length; i++) {
             areasListAux[i] = areasList[i];
         }
-        areasListAux = areasList;
+        areasList = areasListAux;
     }
 
-    @Override
-    public double income() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String report1() {
+        String txt = "";
+        int finalIncome = 0;
+        for (int i = 0; i < counter; i++) {
+            finalIncome += areasList[i].income();
+
+        }
+        for (int i = 0; i < counter; i++) {
+            txt += areasList[i].report1() + "\n";
+        }
+        return txt + "\nIngresos totales: " + finalIncome;
+
+    }
+
+    public String report2() {
+        int amountOfTickets = 0;
+        int amountOfSubsidy = 0;
+        int AmountOfNoGovernmentHelp = 0;
+
+        for (int i = 0; i < counter; i++) {
+            if (areasList[i] instanceof NationalPark) {
+                NationalPark newV = (NationalPark) areasList[i];
+                amountOfTickets += newV.getIncomePerEntry();
+            }
+        }
+
+        for (int i = 0; i < counter; i++) {
+            if (areasList[i] instanceof NationalMonument) {
+                NationalMonument newV = (NationalMonument) areasList[i];
+                amountOfTickets += newV.getIncomePerEntry();
+            }
+        }
+
+        for (int i = 0; i < counter; i++) {
+            if (areasList[i] instanceof NationalPark) {
+                NationalPark newV = (NationalPark) areasList[i];
+                amountOfSubsidy += newV.getGrant();
+            }
+        }
+
+        for (int i = 0; i < counter; i++) {
+            if (areasList[i] instanceof WildlifeRefuge) {
+                WildlifeRefuge newV = (WildlifeRefuge) areasList[i];
+                amountOfSubsidy += newV.getResult();
+            }
+        }
+
+        for (int i = 0; i < counter; i++) {
+            if (areasList[i] instanceof BiologicalReserve) {
+                BiologicalReserve newV = (BiologicalReserve) areasList[i];
+                amountOfSubsidy += newV.getGrant();
+            }
+        }
+
+        for (int i = 0; i < counter; i++) {
+            if (areasList[i] instanceof WildlifeRefuge) {
+                WildlifeRefuge newV = (WildlifeRefuge) areasList[i];
+                AmountOfNoGovernmentHelp += newV.getHelp();
+            }
+        }
+
+        for (int i = 0; i < counter; i++) {
+            if (areasList[i] instanceof NationalHeritage) {
+                NationalHeritage newV = (NationalHeritage) areasList[i];
+                AmountOfNoGovernmentHelp += newV.getAditionalAmmount();
+            }
+        }
+
+        return "Reporte desglosado:\nValor obtenido por subvención: " + amountOfSubsidy + "\nValor obtenido por entradas: " + amountOfTickets
+                + "\nValor obtenido por ayuda no gubernamental: " + AmountOfNoGovernmentHelp;
     }
 
 }

@@ -41,5 +41,6 @@ public abstract class ProtectedAreas {
     }
 
     public abstract double income();
+    public abstract String report1();
 
 }

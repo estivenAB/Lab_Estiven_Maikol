@@ -9,6 +9,9 @@ public abstract class NationalMonument extends ProtectedAreas implements IncomeP
 
     int incomePerEntry;
 
+    public NationalMonument() {
+    }
+
     public NationalMonument(int incomePerEntry, String name, String province) {
         super(name, province);
         this.incomePerEntry = incomePerEntry;
@@ -37,4 +40,13 @@ public abstract class NationalMonument extends ProtectedAreas implements IncomeP
         return incomePerEntry;
     }
 
+    @Override
+    public String toString() {
+        return "NationalMonument:" + " incomePerEntry=" + incomePerEntry;
+    }
+
+    @Override
+    public String report1() {
+        return "Provincia: " + getProvince() + "\nNombre:" + getName() + "/ Ingresos :" + income();
+    }
 }

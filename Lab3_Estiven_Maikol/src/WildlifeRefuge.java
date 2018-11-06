@@ -10,6 +10,9 @@ public class WildlifeRefuge extends ProtectedAreas {
     double result;
     boolean property;
 
+    public WildlifeRefuge() {
+    }
+
     public WildlifeRefuge(double help, double result, boolean property, String name, String province) {
         super(name, province);
         this.help = help;
@@ -58,6 +61,14 @@ public class WildlifeRefuge extends ProtectedAreas {
         }
         return help;
     }
-    
+
+    @Override
+    public String toString() {
+        return "WildlifeRefuge:" + " help=" + help + ", result=" + result + ", property=" + property;
+    }
+     @Override
+    public String report1() {
+        return "Provincia: " + getProvince() + "\nNombre:" + getName() + "/ Ingresos :" + income();
+    }
     
 }
