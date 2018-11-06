@@ -40,6 +40,6 @@ public abstract class ProtectedAreas {
         return "ProtectedAreas:" + "\nname:" + name + ", province:" + province;
     }
 
-    public abstract int income();
+    public abstract double income();
 
 }

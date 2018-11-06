@@ -7,14 +7,19 @@
  */
 public class NationalPark extends ProtectedAreas implements IncomeBySubsidy, IncomePerEntry {
 
+    int grant;
+    int incomePerEntry;
+
     @Override
-    public int income() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public double income() {
+        int incomeResult;
+        incomeResult = grant + incomePerEntry;
+        return incomeResult;
     }
 
     @Override
-    public int incomeBySubsidy() {
-        int grant;
+    public double incomeBySubsidy() {
+
         grant = ICE_CLIENTS * 1200;
         return grant;
 
@@ -26,7 +31,7 @@ public class NationalPark extends ProtectedAreas implements IncomeBySubsidy, Inc
         int incomeByNationals = numTicketsSoldNational * NATIONALS;
         int incomeByForeign = numTicketsSoldForeign * FOREIGN;
 
-        int incomePerEntry = incomeByForeign + incomeByNationals;
+        incomePerEntry = incomeByForeign + incomeByNationals;
 
         return incomePerEntry;
 

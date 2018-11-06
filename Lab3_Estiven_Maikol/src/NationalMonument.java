@@ -5,11 +5,11 @@
  * @author Estiven Álvarez
  * @version 3 noviembre 2018
  */
-public class NationalMonument extends ProtectedAreas implements IncomePerEntry, IncomeNonGovermentalAid {
-
+public abstract class NationalMonument extends ProtectedAreas implements IncomePerEntry {
+    int incomePerEntry;
     @Override
-    public int income() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public double income() {
+        return incomePerEntry;
     }
 
     @Override
@@ -17,17 +17,10 @@ public class NationalMonument extends ProtectedAreas implements IncomePerEntry, 
         int incomeByNationals = numTicketsSoldNational * NATIONALS;
         int incomeByForeign = numTicketsSoldForeign * FOREIGN;
 
-        int incomePerEntry = incomeByForeign + incomeByNationals;
+        incomePerEntry = incomeByForeign + incomeByNationals;
 
         return incomePerEntry;
     }
-
-    @Override
-    public double incomeNonGovermentalAid() {
-        final double PIB_CR = 34588535.3;
-        double aditionalAmmount;
-        aditionalAmmount = (PIB_CR * 0.002) / 100;
-        return aditionalAmmount;
-    }
-
+    
+    
 }

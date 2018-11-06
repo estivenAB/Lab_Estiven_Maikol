@@ -5,11 +5,21 @@
  * @author Estiven Álvarez
  * @version 3 noviembre 2018
  */
-public class BiologicalReserve extends ProtectedAreas {
-
-    @Override
-    public int income() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+public class BiologicalReserve extends ProtectedAreas implements IncomeBySubsidy{
+    
+    double grant;
+    
+    public double getNecessaryGrant(double necessaryGrant){
+        return grant = necessaryGrant;
     }
-
+    
+    @Override
+    public double incomeBySubsidy() {
+        return grant;
+    }
+    @Override
+    public double income() {
+        return grant;
+    }
+    
 }

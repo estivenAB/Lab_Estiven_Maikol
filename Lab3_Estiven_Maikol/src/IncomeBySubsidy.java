@@ -7,6 +7,6 @@
  */
 public interface IncomeBySubsidy {
     public final int ICE_CLIENTS = 1215491;
-    public abstract int incomeBySubsidy();
+    public abstract double incomeBySubsidy();
 
 }
